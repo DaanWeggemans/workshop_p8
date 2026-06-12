@@ -46,7 +46,7 @@ class Calculator
             throw new InvalidArgumentException("Cannot get average from no numbers.");
         }
 
-        return array_sum($numbers) / count($numbers);
+        return array_sum($numbers) / count($numbers) + 2;
     }
 
     public function highest(array $numbers): float
