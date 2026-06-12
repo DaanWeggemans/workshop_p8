@@ -26,13 +26,17 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
 
-      # 4. Tests draaien (CI) + output naar bestand
+      # 4. Run dump-autoload
+      - name: Dump autoload
+        run: composer dump-autoload
+
+      # 5. Tests draaien (CI) + output naar bestand
       - name: Run tests
         run: |
           mkdir -p test-results
           composer test -- --log-junit test-results/junit.xml
 
-      # 5. Upload testresultaten als artifact
+      # 6. Upload testresultaten als artifact
       - name: Upload test results
         if: always() # ook uploaden als tests falen
         uses: actions/upload-artifact@v4
