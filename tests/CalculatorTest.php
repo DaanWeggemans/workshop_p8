@@ -122,9 +122,9 @@ class CalculatorTest extends TestCase
         $a = 6;
         $b = 0;
 
-        $this->calculator->divide($a, $b);
-
         $this->expectException(InvalidArgumentException::class);
+        
+        $this->calculator->divide($a, $b);
     }
 
     /* =========================
@@ -223,20 +223,20 @@ class CalculatorTest extends TestCase
     
     public function testAverageWithMultiple()
     {
-        $a = [5, 3, 8];
+        $a = [8, 5, 3, 8];
 
         $result = $this->calculator->average($a);
 
-        $this->assertEquals(8, $result);
+        $this->assertEquals(6, $result);
     }
     
     public function testAverageWithNone()
     {
         $a = [];
 
-        $result = $this->calculator->average($a);
-
         $this->expectException(InvalidArgumentException::class);
+        
+        $this->calculator->average($a);
     }
 
     /* =========================
