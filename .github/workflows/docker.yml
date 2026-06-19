@@ -18,7 +18,7 @@ jobs:
 
       - name: Extract version
         id: vars
-        run: echo "VERSION=${{ GITHUB_REF#refs/tags/v }}" >> $GITHUB_OUTPUT
+        run: echo "VERSION=${ GITHUB_REF#refs/tags/v }" >> $GITHUB_OUTPUT
 
       - name: Build image
         run: |
